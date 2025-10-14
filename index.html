@@ -33,17 +33,13 @@
             legend: { labels: { color: '#fff' } },
             title: {
               display: true,
-              text: lowerIsBetter ? 'Time (ms) - Lower is Better' : 'Time (ms)',
+              text: lowerIsBetter ? 'Time (ms) – Lower is Better' : 'Time (ms)',
               color: '#fff'
             }
           },
           scales: {
             x: { ticks: { color: '#fff' }, grid: { color: '#444' } },
-            y: { 
-              ticks: { color: '#fff' }, 
-              grid: { color: '#444' },
-              reverse: lowerIsBetter // invert axis if lower is better
-            }
+            y: { ticks: { color: '#fff' }, grid: { color: '#444' } }
           }
         }
       });
@@ -63,6 +59,7 @@
         }
       });
     }
+
 
     // Basic Operations
     createBarChart('basicOps',
