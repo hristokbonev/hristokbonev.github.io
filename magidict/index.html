@@ -1,187 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MagiDict Benchmark</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body { background: #111; color: #fff; font-family: sans-serif; text-align:center; }
-    canvas { background: #222; margin: 30px auto; border-radius: 10px; display:block; }
-    h1 { margin-top: 20px; }
-  </style>
+  <meta charset="UTF-8">
+  <title>MagiDict Benchmark</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; text-align:center; }
+    canvas { background: #222; margin: 30px auto; border-radius: 10px; display:block; }
+    h1 { margin-top: 20px; }
+  </style>
 </head>
 <body>
-  <h1>MagiDict Benchmark</h1>
+  <h1>MagiDict Benchmark</h1>
 
-  <canvas id="basicOps" width="700" height="400"></canvas>
-  <canvas id="accessPatterns" width="700" height="400"></canvas>
-  <canvas id="initialization" width="700" height="400"></canvas>
-  <canvas id="conversion" width="700" height="400"></canvas>
-  <canvas id="iteration" width="700" height="400"></canvas>
-  <canvas id="update" width="700" height="400"></canvas>
-  <canvas id="overallRadar" width="700" height="500"></canvas>
+  <canvas id="basicOps" width="700" height="400"></canvas>
+  <canvas id="accessPatterns" width="700" height="400"></canvas>
+  <canvas id="initialization" width="700" height="400"></canvas>
+  <canvas id="conversion" width="700" height="400"></canvas>
+  <canvas id="iteration" width="700" height="400"></canvas>
+  <canvas id="update" width="700" height="400"></canvas>
+  <canvas id="overallRadar" width="700" height="500"></canvas>
 
-  <script>
-    function createBarChart(canvasId, labels, datasets) {
-      const ctx = document.getElementById(canvasId).getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: { labels, datasets },
-        options: {
-          responsive: false,
-          plugins: { legend: { labels: { color: '#fff' } } },
-          scales: {
-            x: { ticks: { color: '#fff' }, grid: { color: '#444' } },
-            y: { type: 'logarithmic', ticks: { color: '#fff' }, grid: { color: '#444' } }
-          }
-        }
-      });
-    }
+  <script>
+    function createBarChart(canvasId, labels, datasets) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+          responsive: false,
+          plugins: { legend: { labels: { color: '#fff' } } },
+          scales: {
+            x: { ticks: { color: '#fff' }, grid: { color: '#444' } },
+            y: { ticks: { color: '#fff' }, grid: { color: '#444' } }
+          }
+        }
+      });
+    }
 
-    function createRadarChart(canvasId, labels, datasets) {
-      const ctx = document.getElementById(canvasId).getContext('2d');
-      new Chart(ctx, {
-        type: 'radar',
-        data: { labels, datasets },
-        options: {
-          responsive: false,
-          scales: {
-            r: { angleLines: { color: '#444' }, grid: { color: '#444' }, pointLabels: { color: '#fff' }, min: 0, max: 100 }
-          },
-          plugins: { legend: { labels: { color: '#fff' } } }
-        }
-      });
-    }
+    function createRadarChart(canvasId, labels, datasets) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      new Chart(ctx, {
+        type: 'radar',
+        data: { labels, datasets },
+        options: {
+          responsive: false,
+          scales: {
+            r: { angleLines: { color: '#444' }, grid: { color: '#444' }, pointLabels: { color: '#fff' }, min: 0, max: 100 }
+          },
+          plugins: { legend: { labels: { color: '#fff' } } }
+        }
+      });
+    }
 
-    // Basic Operations
-createBarChart('basicOps',
-  ['Contains', 'Get Method', 'Bracket Access'],
-  [
-    { label: 'MagiDict', data: [107.61, 192.58, 1020.48], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [533.85, 896.23, 966.87], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [217.07, 286.59, 446.54], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [107.55, 192.43, 151.81], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [286.69, 418.05, 456.07], backgroundColor: '#3B82F6' } // Data from log not available
-  ]
-);
+    // Basic Operations
+    createBarChart('basicOps',
+      ['Contains', 'Get Method', 'Bracket Access'],
+      [
+        { label: 'MagiDict', data: [107.61, 192.58, 1020.48], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [533.85, 896.23, 966.87], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [217.07, 286.59, 446.54], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [107.55, 192.43, 151.81], backgroundColor: '#10B981' }
+      ]
+    );
 
-// Access Patterns
-createBarChart('accessPatterns',
-  ['Basic Access', 'List Access', 'Missing Key'],
-  [
-    { label: 'MagiDict', data: [2089.85, 1590.47, 9117.79], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [1861.12, 1741.88, 6669.92], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [3786.65, 2607.15, 6237.08], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [714.98, 548.31, 8245.16], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [286.69, 456.07, 6779.53], backgroundColor: '#3B82F6' } // Data from log not available
-  ]
-);
+    // Access Patterns
+    createBarChart('accessPatterns',
+      ['Basic Access', 'List Access', 'Missing Key'],
+      [
+        { label: 'MagiDict', data: [2089.85, 1590.47, 9117.79], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [1861.12, 1741.88, 6669.92], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [3786.65, 2607.15, 6237.08], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [714.98, 548.31, 8245.16], backgroundColor: '#10B981' }
+      ]
+    );
 
-// Initialization
-createBarChart('initialization',
-  ['Standard', 'Deep Nested', 'Wide (1000 keys)'],
-  [
-    { label: 'MagiDict', data: [59078.35, 77308.02, 9664465.98], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [1007996.77, 223458.09, 25345905.48], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [825901.68, 78438.93, 9947026.03], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [389823.46, 46716.20, 6408502.55], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [290.17, 291.03, 290.19], backgroundColor: '#3B82F6' }
-  ]
-);
+    // Initialization
+    createBarChart('initialization',
+      ['Standard', 'Deep Nested', 'Wide (1000 keys)'],
+      [
+        { label: 'MagiDict', data: [59078.35, 77308.02, 9664465.98], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [1007996.77, 223458.09, 25345905.48], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [825901.68, 78438.93, 9947026.03], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [389823.46, 46716.20, 6408502.55], backgroundColor: '#10B981' }
+      ]
+    );
 
-// Conversion
-createBarChart('conversion',
-  ['To Dict', 'Deep Copy', 'Copy'],
-  [
-    { label: 'MagiDict', data: [286503.92, 285459.41, 34018.97], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [180300.32, 2731596.55, 57774.83], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [203951.29, 456423.44, 451849.68], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [269.83, 475524.45, 13122.32], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [286.69, 493.50, 492.54], backgroundColor: '#3B82F6' } // Data from log not available
-  ]
-);
+    // Conversion
+    createBarChart('conversion',
+      ['To Dict', 'Deep Copy', 'Copy'],
+      [
+        { label: 'MagiDict', data: [286503.92, 285459.41, 34018.97], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [180300.32, 2731596.55, 57774.83], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [203951.29, 456423.44, 451849.68], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [269.83, 475524.45, 13122.32], backgroundColor: '#10B981' }
+      ]
+    );
 
-// Iteration
-createBarChart('iteration',
-  ['List Iteration', 'Keys', 'Values', 'Items'],
-  [
-    { label: 'MagiDict', data: [62968.75, 1873.29, 1879.41, 1927.46], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [55534.60, null, null, null], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [118011.29, null, null, null], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [23043.43, null, null, null], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [923.65, 3.17, 3.46, 1.08], backgroundColor: '#3B82F6' } // Data from log not available
-  ]
-);
+    // Iteration
+    createBarChart('iteration',
+      ['List Iteration', 'Keys', 'Values', 'Items'],
+      [
+        { label: 'MagiDict', data: [62968.75, 1873.29, 1879.41, 1927.46], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [55534.60, null, null, null], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [118011.29, null, null, null], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [23043.43, null, null, null], backgroundColor: '#10B981' }
+      ]
+    );
 
-// Update
-createBarChart('update',
-  ['Single Update', 'Bulk Update', 'Setdefault'],
-  [
-    { label: 'MagiDict', data: [36857.98, 46215.19, 40514.54], backgroundColor: '#8B5CF6' },
-    { label: 'Box', data: [56947.35, 66407.89, 76117.58], backgroundColor: '#EF4444' },
-    { label: 'DotMap', data: [452245.10, null, null], backgroundColor: '#F59E0B' },
-    { label: 'Addict', data: [394192.78, null, null], backgroundColor: '#10B981' },
-    { label: 'DotDict', data: [492.54, 497.43, null], backgroundColor: '#3B82F6' } // Data from log not available
-  ]
-);
+    // Update
+    createBarChart('update',
+      ['Single Update', 'Bulk Update', 'Setdefault'],
+      [
+        { label: 'MagiDict', data: [36857.98, 46215.19, 40514.54], backgroundColor: '#8B5CF6' },
+        { label: 'Box', data: [56947.35, 66407.89, 76117.58], backgroundColor: '#EF4444' },
+        { label: 'DotMap', data: [452245.10, null, null], backgroundColor: '#F59E0B' },
+        { label: 'Addict', data: [394192.78, null, null], backgroundColor: '#10B981' }
+      ]
+    );
 
-    createRadarChart('overallRadar',
-  ['Basic Ops', 'Access Patterns', 'Initialization', 'Conversion', 'Iteration', 'Update'],
-  [
-    {
-      label: 'MagiDict',
-      data: [95, 75, 40, 85, 80, 98],
-      backgroundColor: 'rgba(139, 92, 246, 0.2)',
-      borderColor: 'rgba(139, 92, 246, 1)',
-      pointBackgroundColor: 'rgba(139, 92, 246, 1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(139, 92, 246, 1)'
-    },
-    {
-      label: 'Box',
-      data: [40, 80, 20, 30, 85, 80],
-      backgroundColor: 'rgba(239, 68, 68, 0.2)',
-      borderColor: 'rgba(239, 68, 68, 1)',
-      pointBackgroundColor: 'rgba(239, 68, 68, 1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(239, 68, 68, 1)'
-    },
-    {
-      label: 'DotMap',
-      data: [70, 30, 35, 20, 40, 25],
-      backgroundColor: 'rgba(245, 158, 11, 0.2)',
-      borderColor: 'rgba(245, 158, 11, 1)',
-      pointBackgroundColor: 'rgba(245, 158, 11, 1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(245, 158, 11, 1)'
-    },
-    {
-      label: 'Addict',
-      data: [100, 100, 50, 60, 100, 30],
-      backgroundColor: 'rgba(16, 185, 129, 0.2)',
-      borderColor: 'rgba(16, 185, 129, 1)',
-      pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(16, 185, 129, 1)'
-    },
-    {
-      label: 'DotDict',
-      data: [80, 70, 100, 50, 50, 50],
-      backgroundColor: 'rgba(59, 130, 246, 0.2)',
-      borderColor: 'rgba(59, 130, 246, 1)',
-      pointBackgroundColor: 'rgba(59, 130, 246, 1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
-    }
-  ]
-);
+    // Overall Radar
+    createRadarChart('overallRadar',
+      ['Basic Ops', 'Access Speed', 'Init Speed', 'Safety', 'Features', 'Memory'],
+      [
+        { label: 'MagiDict', data: [95, 85, 80, 100, 100, 85], backgroundColor: 'rgba(139,92,246,0.6)', borderColor:'#8B5CF6', borderWidth:2 },
+        { label: 'Box', data: [60, 90, 40, 60, 70, 70], backgroundColor: 'rgba(239,68,68,0.3)', borderColor:'#EF4444', borderWidth:2 },
+        { label: 'DotMap', data: [80, 65, 45, 50, 60, 80], backgroundColor: 'rgba(245,158,11,0.3)', borderColor:'#F59E0B', borderWidth:2 },
+        { label: 'Addict', data: [95, 95, 90, 80, 70, 90], backgroundColor: 'rgba(16,185,129,0.3)', borderColor:'#10B981', borderWidth:2 }
+      ]
+    );
 
-
-  </script>
+  </script>
 </body>
 </html>
