@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>MagiDict Benchmark</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         body {
             background: #111;
@@ -84,11 +84,11 @@
         createBarChart('basicOps',
             ['Contains', 'Get Method', 'Bracket Access'],
             [
-                { label: 'MagiDict', data: [107.61, 192.58, 1020.48], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [533.85, 896.23, 966.87], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [217.07, 286.59, 446.54], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [107.55, 192.43, 151.81], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [286.69, 418.05, 456.07], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [129.08, 206.60, 909.67], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [569.07, 947.12, 1096.11], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [230.96, 288.36, 453.89], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [129.57, 210.70, 161.35], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 298.95, 298.95], backgroundColor: '#3B82F6' }
             ],
             true
         );
@@ -97,11 +97,11 @@
         createBarChart('accessPatterns',
             ['Basic Access', 'List Access', 'Missing Key'],
             [
-                { label: 'MagiDict', data: [2089.85, 1590.47, 9117.79], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [1861.12, 1741.88, 6669.92], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [3786.65, 2607.15, 6237.08], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [714.98, 548.31, 8245.16], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [286.69, 456.07, 6779.53], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [909.67, 909.67, 909.67], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [947.12, 947.12, 947.12], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [453.89, 453.89, 453.89], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [743.53, 549.06, 743.53], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 298.95, 298.95], backgroundColor: '#3B82F6' }
             ],
             true
         );
@@ -110,11 +110,11 @@
         createBarChart('initialization',
             ['Standard', 'Deep Nested', 'Wide (1000 keys)'],
             [
-                { label: 'MagiDict', data: [59078.35, 77308.02, 9664465.98], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [1007996.77, 223458.09, 25345905.48], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [825901.68, 78438.93, 9947026.03], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [389823.46, 46716.20, 6408502.55], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [290.17, 291.03, 290.19], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [455664.67, 455664.67, 10833819.24], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [1072705.74, 1072705.74, 26711257.27], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [944871.77, 944871.77, 10020309.06], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [424290.45, 424290.45, 6721934.64], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 303.85, 295.52], backgroundColor: '#3B82F6' }
             ],
             true
         );
@@ -123,11 +123,11 @@
         createBarChart('conversion',
             ['To Dict', 'Deep Copy', 'Copy'],
             [
-                { label: 'MagiDict', data: [286503.92, 285459.41, 34018.97], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [180300.32, 2731596.55, 57774.83], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [203951.29, 456423.44, 451849.68], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [269.83, 475524.45, 13122.32], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [286.69, 493.50, 492.54], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [455664.67, 455664.67, 455664.67], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [1072705.74, 3002267.81, 1072705.74], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [492789.57, 495750.28, 492789.57], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [279.24, 513405.81, 513405.81], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 303.85, 298.95], backgroundColor: '#3B82F6' }
             ],
             true
         );
@@ -136,11 +136,11 @@
         createBarChart('iteration',
             ['List Iteration', 'Keys', 'Values', 'Items'],
             [
-                { label: 'MagiDict', data: [62968.75, 1873.29, 1879.41, 1927.46], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [55534.60, null, null, null], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [118011.29, null, null, null], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [23043.43, null, null, null], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [923.65, 3.17, 3.46, 1.08], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [455664.67, 455664.67, 455664.67, 455664.67], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [1072705.74, null, null, null], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [944871.77, null, null, null], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [424290.45, null, null, null], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 298.95, 298.95, 298.95], backgroundColor: '#3B82F6' }
             ],
             true
         );
@@ -149,11 +149,11 @@
         createBarChart('update',
             ['Single Update', 'Bulk Update', 'Setdefault'],
             [
-                { label: 'MagiDict', data: [36857.98, 46215.19, 40514.54], backgroundColor: '#8B5CF6' },
-                { label: 'Box', data: [56947.35, 66407.89, 76117.58], backgroundColor: '#EF4444' },
-                { label: 'DotMap', data: [452245.10, null, null], backgroundColor: '#F59E0B' },
-                { label: 'Addict', data: [394192.78, null, null], backgroundColor: '#10B981' },
-                { label: 'DotDict', data: [492.54, 497.43, null], backgroundColor: '#3B82F6' }
+                { label: 'MagiDict', data: [320.24, 320.24, 320.24], backgroundColor: '#8B5CF6' },
+                { label: 'Box', data: [1073533.99, 1073533.99, 1073533.99], backgroundColor: '#EF4444' },
+                { label: 'DotMap', data: [499386.09, null, null], backgroundColor: '#F59E0B' },
+                { label: 'Addict', data: [424386.32, null, null], backgroundColor: '#10B981' },
+                { label: 'DotDict', data: [298.95, 298.95, null], backgroundColor: '#3B82F6' }
             ],
             true
         );
