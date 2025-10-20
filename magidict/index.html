@@ -49,8 +49,59 @@
   <h2>Update Operations</h2>
   <canvas id="update" width="700" height="400"></canvas>
 
-    <h2>Rankings</h2>
-  <canvas id="rankings" width="700" height="400"></canvas>    
+ <h2>Rankings</h2>
+  <div style="max-width: 800px; margin: 30px auto; text-align: left; padding: 30px; background: #222; border-radius: 10px; font-size: 18px; line-height: 1.8;">
+    
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Basic Operations</strong>
+      <span>🥇 1st: Addict</span>
+      <span>🥈 2nd: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥉 3rd: DotDict</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Access Speed</strong>
+      <span>🥇 1st: Addict</span>
+      <span>🥈 2nd: Box</span>
+      <span>🥉 3rd: <span style="color: #8B5CF6;">MagiDict</span></span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Init Speed</strong>
+      <span>🥇 1st: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥈 2nd: Addict</span>
+      <span>🥉 3rd: DotMap</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Conversion</strong>
+      <span>🥇 1st: Addict</span>
+      <span>🥈 2nd: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥉 3rd: Box</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Iteration</strong>
+      <span>🥇 1st: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥈 2nd: Addict</span>
+      <span>🥉 3rd: Box</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; border-bottom: 1px solid #444; align-items: center;">
+      <strong style="color: #8B5CF6;">Updates</strong>
+      <span>🥇 1st: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥈 2nd: Box</span>
+      <span>🥉 3rd: DotDict</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px 200px 200px 200px; padding: 15px 0; align-items: center;">
+      <strong style="color: #8B5CF6;">Features</strong>
+      <span>🥇 1st: <span style="color: #8B5CF6;">MagiDict</span></span>
+      <span>🥈 2nd: Box</span>
+      <span>🥉 3rd: Addict</span>
+    </div>
+
+  </div> 
 
     <script>
         function createBarChart(canvasId, labels, datasets, lowerIsBetter = false) {
@@ -76,20 +127,6 @@
             });
         }
 
-        function createRadarChart(canvasId, labels, datasets) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            new Chart(ctx, {
-                type: 'radar',
-                data: { labels, datasets },
-                options: {
-                    responsive: false,
-                    scales: {
-                        r: { angleLines: { color: '#444' }, grid: { color: '#444' }, pointLabels: { color: '#fff' }, min: 0, max: 100 }
-                    },
-                    plugins: { legend: { labels: { color: '#fff' } } }
-                }
-            });
-        }
 
 
         // Basic Operations
@@ -170,18 +207,7 @@
             true
         );
 
-                // MagiDict Category Rankings
-        createBarChart('rankings',
-            ['Basic Ops', 'Access Speed', 'Init Speed', 'Conversion', 'Iteration', 'Updates', 'Features'],
-            [
-                { 
-                    label: 'MagiDict Placement', 
-                    data: [2, 3, 1, 2, 1, 1, 1], 
-                    backgroundColor: ['#C0C0C0', '#CD7F32', '#FFD700', '#C0C0C0', '#FFD700', '#FFD700', '#FFD700']
-                }
-            ],
-            false
-        );
+
 
     </script>
 </body>
